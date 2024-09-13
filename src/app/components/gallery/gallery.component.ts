@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PictureService } from '../../services/picture.service';
 import { Picture } from '../../models/picture.model';
-import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-gallery',
   standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './gallery.component.html',  // Ссылка на внешний HTML-шаблон
+  imports: [CommonModule],
+  templateUrl: './gallery.component.html',
+  styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent {
   pictures: Picture[] = [];
@@ -18,7 +19,9 @@ export class GalleryComponent {
   }
 
   loadPictures(): void {
-    this.pictures = this.pictureService.getPictures();
+    this.pictureService.getPictures().subscribe((pictures) => {
+      this.pictures = pictures;
+    });
   }
 
   onSelectPicture(picture: Picture): void {

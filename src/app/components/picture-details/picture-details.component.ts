@@ -2,24 +2,30 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PictureService } from '../../services/picture.service';
-import { Picture } from '../../models/picture.model';
+import { Picture } from '../../models/picture.model'; 
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-picture-details',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './picture-details.component.html',  // Ссылка на внешний HTML-шаблон
-  styleUrls: ['./picture-details.component.css']    // Ссылка на внешний файл стилей
+  templateUrl: './picture-details.component.html',
+  styleUrls: ['./picture-details.component.css']
 })
 export class PictureDetailsComponent {
-  picture: Picture | undefined;
+  picture: Picture | null = null;  // Убедитесь, что тип включает null
 
-  constructor(private route: ActivatedRoute, private pictureService: PictureService) {
+  constructor(
+    private route: ActivatedRoute,
+    private pictureService: PictureService
+  ) {
     this.loadPicture();
   }
 
   loadPicture(): void {
     const id = +this.route.snapshot.params['id'];
-    this.picture = this.pictureService.getPictureById(id);
+    this.pictureService.getPictureById(id).subscribe((data: Picture | null) => {
+      this.picture = data;
+    });
   }
 }

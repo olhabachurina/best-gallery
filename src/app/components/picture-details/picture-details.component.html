@@ -1,8 +1,8 @@
 <div *ngIf="picture" class="painting-details">
-    <h2>{{ picture.title }} ({{ picture.year }})</h2>
-    <p><strong>Author:</strong> {{ picture.author }}</p>
-    <p><strong>Dimensions:</strong> {{ picture.dimensions }}</p>
-    <p><strong>Location:</strong> {{ picture.location }}</p>
-    <img [src]="picture.imageUrl" alt="{{ picture.title }}" class="painting-image" />
-    <a [href]="picture.descriptionUrl" target="_blank" class="description-link">Learn more</a>
-  </div>
+  <h2>{{ picture.title }} ({{ picture.year }})</h2>
+  <p><strong>Author:</strong> {{ picture.author }}</p>
+  <p><strong>Dimensions:</strong> {{ picture.dimensions }}</p>
+  <p><strong>Location:</strong> {{ picture.location }}</p>
+  <img [src]="picture.imageUrl" alt="{{ picture.title }}" class="painting-image" />
+  <a [href]="picture.descriptionUrl" target="_blank" class="description-link">Learn more</a>
+</div>
