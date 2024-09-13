@@ -1,0 +1,150 @@
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(145deg, #8b0000, #b22222);
+    padding: 40px;
+    border-radius: 10px;
+  }
+  
+  /* Заголовок */
+  h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 8px #000;
+    animation: glow 1.5s infinite alternate;
+  }
+  
+  /* Анимация заголовка */
+  @keyframes glow {
+    0% {
+      text-shadow: 2px 2px 8px #000, 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+    }
+    100% {
+      text-shadow: 2px 2px 8px #000, 0 0 20px #ff9900, 0 0 30px #ff9900, 0 0 40px #ff9900;
+    }
+  }
+  
+  /* Контейнер для миниатюр */
+  .thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  .thumbnail-container {
+    cursor: pointer;
+    position: relative;
+    border: 10px solid #8B4513;  /* Деревянная рамка */
+    border-radius: 15px;
+    padding: 10px;
+    background: #deb887;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+  }
+  /* Карточки картин с деревянной рамкой */
+  .thumbnail-container::before {
+    content: '';
+    position: absolute;
+    top: -30px;  
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    height: 20px;  
+    background: linear-gradient(to bottom, rgba(255, 255, 224, 1), rgba(255, 255, 224, 0)); /* Имитация света */
+    box-shadow: 0 4px 10px rgba(255, 255, 224, 0.7); /* Эффект рассеивания света */
+    border-radius: 5px;
+    opacity: 1; /* Подсветка всегда включена */
+    z-index: 1; /* Убедимся, что подсветка выше рамки */
+  }
+  
+  .thumbnail-container:hover::before {
+    opacity: 1;
+  }
+  
+  .thumbnail-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .thumbnail-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .thumbnail-container:hover::after {
+    opacity: 1;
+  }
+  
+  /* Текст под картинками */
+  .thumbnail-container p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  /* Эффекты при наведении */
+  .thumbnail {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .thumbnail:hover {
+    filter: brightness(1.2);
+  }
+  
+  /* Детальная информация */
+  .painting-details {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .painting-image {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  .description-link {
+    display: block;
+    margin-top: 15px;
+    font-size: 18px;
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .description-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
+  /* Убираем слишком большое поле под картинками */
+  @media (max-width: 768px) {
+    .thumbnail {
+      width: 120px;
+      height: 120px;
+    }
+  }
+    

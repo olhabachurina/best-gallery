@@ -1,0 +1,106 @@
+body, html {
+  height: 100%; 
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5dc; /* Бежевый фон */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Контейнер для деталей картины */
+.painting-details {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 20px; 
+}
+
+/* Анимация при наведении */
+.painting-details:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Заголовок */
+h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Стиль для текста */
+p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #34495e;
+}
+
+strong {
+  color: #e74c3c; /* Цвет для выделения */
+}
+
+/* Картинка */
+.painting-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+/* Эффект увеличения картинки при наведении */
+.painting-image:hover {
+  transform: scale(1.05);
+}
+
+/* Ссылка "Learn more" */
+.description-link {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #3498db;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: #f39c12;
+  color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Эффект при наведении на ссылку */
+.description-link:hover {
+  background: #e67e22;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  text-decoration: underline;
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+  .painting-details {
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .description-link {
+    font-size: 1rem;
+    padding: 8px 15px;
+  }
+}
